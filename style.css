@@ -1,0 +1,97 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #120b20, #421b39, #ffb6d1);
+  color: white;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 650px;
+  margin: auto;
+  padding: 35px 0;
+}
+
+.terminal {
+  background: #090909;
+  color: #00ff88;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: left;
+  font-family: monospace;
+  box-shadow: 0 0 20px #00ff8860;
+}
+
+.heart {
+  font-size: 65px;
+  margin-top: 25px;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.3); }
+}
+
+h1 {
+  color: #ffb6d1;
+  font-size: 38px;
+  text-shadow: 0 0 15px #ff4d94;
+}
+
+.subtitle {
+  font-size: 18px;
+}
+
+button {
+  padding: 15px 25px;
+  background: #ff4d94;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px 0;
+  box-shadow: 0 0 20px #ff4d94;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#surprise {
+  display: none;
+  background: #ffffffeb;
+  color: #8d2457;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 25px;
+  animation: appear 1s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.photo img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 18px;
+  border: 4px solid pink;
+}
+
+.letter {
+  background: #fff0f5;
+  border-radius: 15px;
+  padding: 20px;
+  line-height: 2;
+  white-space: pre-line;
+}
+
+.signature {
+  font-weight: bold;
+  color: #d63384;
+}
