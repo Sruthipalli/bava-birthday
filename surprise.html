@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bava's Surprise 🎁</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Trebuchet MS', sans-serif;
+  background: linear-gradient(135deg,#ffb6d5,#c8b6ff);
+}
+
+.card {
+  max-width: 400px;
+  width: 100%;
+  padding: 35px 20px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.75);
+  box-shadow: 0 10px 35px #9d438b44;
+}
+
+.gift {
+  font-size: 100px;
+  animation: bounce 1.5s infinite;
+}
+
+h1 {
+  color: #a52b68;
+}
+
+p {
+  color: #76365b;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+button {
+  border: none;
+  padding: 16px 25px;
+  border-radius: 30px;
+  background: linear-gradient(45deg,#ff3f83,#b14be0);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px #9d276855;
+}
+
+@keyframes bounce {
+  50% { transform: translateY(-12px); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="gift">🎁</div>
+
+  <h1>Bavaaa! ❤️</h1>
+
+  <p>
+    Your special surprise is waiting! 😍
+  </p>
+
+  <p>
+    Ready to open your birthday gift?
+  </p>
+
+  <button onclick="openBirthday()">
+    OPEN YOUR SURPRISE ❤️
+  </button>
+
+</div>
+
+<script>
+function openBirthday() {
+  window.location.href =
+  "https://sruthipalli.github.io/bava-birthday/";
+}
+</script>
+
+</body>
+</html>
