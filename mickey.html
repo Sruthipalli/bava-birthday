@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey Bava ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Trebuchet MS', sans-serif;
+  background: linear-gradient(135deg,#ffb6d5,#d9b8ff,#ffc5dc);
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px 20px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.65);
+  box-shadow: 0 10px 35px #9d438b44;
+}
+
+/* Mickey Mouse */
+
+.mickey {
+  position: relative;
+  width: 190px;
+  height: 180px;
+  margin: 10px auto 25px;
+  animation: bounce 2s infinite;
+}
+
+.ear {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  background: #17121b;
+  border: 5px solid white;
+  border-radius: 50%;
+  top: 5px;
+}
+
+.left { left: 8px; }
+.right { right: 8px; }
+
+.face {
+  position: absolute;
+  width: 145px;
+  height: 140px;
+  background: #17121b;
+  border: 5px solid white;
+  border-radius: 50%;
+  left: 22px;
+  bottom: 0;
+}
+
+.face:before,
+.face:after {
+  content: "";
+  position: absolute;
+  width: 45px;
+  height: 65px;
+  background: #fff0df;
+  border-radius: 50%;
+  top: 53px;
+}
+
+.face:before { left: 18px; }
+.face:after { right: 18px; }
+
+.eyes {
+  position: absolute;
+  top: 36px;
+  left: 48px;
+  width: 12px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 38px 0 white;
+  z-index: 2;
+}
+
+.nose {
+  position: absolute;
+  width: 25px;
+  height: 17px;
+  background: black;
+  border-radius: 50%;
+  top: 78px;
+  left: 57px;
+  z-index: 3;
+}
+
+.smile {
+  position: absolute;
+  width: 48px;
+  height: 22px;
+  border-bottom: 4px solid #17121b;
+  border-radius: 50%;
+  top: 96px;
+  left: 46px;
+  z-index: 3;
+}
+
+@keyframes bounce {
+  50% { transform: translateY(-12px); }
+}
+
+h1 {
+  color: #a52b68;
+  font-size: 30px;
+}
+
+p {
+  color: #76365b;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.message {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.heart {
+  font-size: 28px;
+  margin: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="mickey">
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+    <div class="face"></div>
+    <div class="eyes"></div>
+    <div class="nose"></div>
+    <div class="smile"></div>
+  </div>
+
+  <h1>Hey Bavaaa! ❤️</h1>
+
+  <div class="message">
+    I have a little surprise for you! 🎁
+  </div>
+
+  <p>
+    Naa favourite person kosam<br>
+    oka chinna surprise ready ga undhi.
+  </p>
+
+  <p>
+    Are you ready, Bava? 😘
+  </p>
+
+  <div class="heart">💕✨💕</div>
+
+</div>
+
+</body>
+</html>
