@@ -1,44 +1,68 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hey Bava ❤️</title>
+<title>A Little Surprise for Bava ❤️</title>
 
 <style>
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
   min-height: 100vh;
+  font-family: 'Trebuchet MS', sans-serif;
+  background: linear-gradient(135deg,#ffc4dd,#e3c5ff,#ffdeeb);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
   text-align: center;
-  font-family: 'Trebuchet MS', sans-serif;
-  background: linear-gradient(135deg,#ffb6d5,#d9b8ff,#ffc5dc);
+  overflow-x: hidden;
 }
 
 .card {
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   padding: 30px 20px;
-  border-radius: 30px;
   background: rgba(255,255,255,.65);
-  box-shadow: 0 10px 35px #9d438b44;
+  border: 2px solid white;
+  border-radius: 30px;
+  box-shadow: 0 12px 35px #a34b8650;
 }
 
-/* Mickey Mouse */
+.page {
+  display: none;
+  animation: appear .8s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* MICKEY MOUSE */
 
 .mickey {
   position: relative;
   width: 190px;
   height: 180px;
   margin: 10px auto 25px;
-  animation: bounce 2s infinite;
+  animation: bounce 2s infinite ease-in-out;
 }
 
 .ear {
@@ -119,7 +143,13 @@ body {
 
 h1 {
   color: #a52b68;
-  font-size: 30px;
+  font-size: 29px;
+  margin: 15px 0;
+}
+
+h2 {
+  color: #b13e80;
+  margin: 15px 0;
 }
 
 p {
@@ -128,15 +158,67 @@ p {
   line-height: 1.8;
 }
 
-.message {
-  font-size: 20px;
+button {
+  border: none;
+  padding: 15px 25px;
+  border-radius: 30px;
+  background: linear-gradient(45deg,#ff4387,#b34be0);
+  color: white;
+  font-size: 16px;
   font-weight: bold;
-  margin: 20px 0;
+  margin-top: 25px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px #9d276855;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+.gift {
+  font-size: 105px;
+  margin: 20px;
+  animation: giftbounce 1.5s infinite;
+}
+
+@keyframes giftbounce {
+  50% { transform: translateY(-12px) rotate(5deg); }
 }
 
 .heart {
-  font-size: 28px;
+  font-size: 30px;
   margin: 15px;
+}
+
+.message {
+  margin-top: 18px;
+  text-align: left;
+  background: #fff1f8;
+  padding: 20px;
+  border-radius: 20px;
+  color: #76365b;
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+.small {
+  font-size: 13px;
+  margin-top: 20px;
+  color: #a52b68;
+}
+
+.floating {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: float 6s linear forwards;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 </style>
 </head>
@@ -144,6 +226,10 @@ p {
 <body>
 
 <div class="card">
+
+<!-- STAGE 1: MICKEY MOUSE -->
+
+<section id="page1" class="page active">
 
   <div class="mickey">
     <div class="ear left"></div>
@@ -156,22 +242,169 @@ p {
 
   <h1>Hey Bavaaa! ❤️</h1>
 
-  <div class="message">
-    I have a little surprise for you! 🎁
-  </div>
-
   <p>
-    Naa favourite person kosam<br>
-    oka chinna surprise ready ga undhi.
+    Helloooo my favourite person! 😍
   </p>
 
+  <h2>I have a little surprise for you! 🎁</h2>
+
   <p>
-    Are you ready, Bava? 😘
+    Are you ready to see what's waiting for you?
   </p>
+
+  <button onclick="nextPage(2)">
+    YES, I'M READY! ❤️
+  </button>
+
+  <div class="small">Mickey has a secret for you 🐭</div>
+
+</section>
+
+
+<!-- STAGE 2: GIFT BOX -->
+
+<section id="page2" class="page">
+
+  <div class="gift">🎁</div>
+
+  <h1>A Special Gift For You! 💝</h1>
+
+  <p>
+    This little gift is filled with
+    lots of love, happiness and memories.
+  </p>
+
+  <p style="margin-top:15px">
+    Bavaaa, shall we open your surprise? 🥰
+  </p>
+
+  <button onclick="nextPage(3)">
+    OPEN YOUR GIFT 💗
+  </button>
 
   <div class="heart">💕✨💕</div>
 
+</section>
+
+
+<!-- STAGE 3: ROMANTIC MESSAGE -->
+
+<section id="page3" class="page">
+
+  <div class="heart">❤️💖❤️</div>
+
+  <h1>For My Bavaaa! 😘</h1>
+
+  <h2>Happy Birthday, Bava! 🎂</h2>
+
+  <div class="message">
+
+    Orey Bavaaa! 😂❤️
+
+    <br><br>
+
+    Nuvvu naa life lo vachina
+    oka beautiful surprise.
+
+    <br><br>
+
+    Nee smile eppudu ilage undali.
+    Nee dreams anni nijam avvali.
+    Nuvvu anukunnavi anni achieve cheyyali.
+
+    <br><br>
+
+    Neetho navvadam, neetho maatladadam,
+    ninnu tease cheyyadam...
+    ivanni naaku chaala special.
+
+    <br><br>
+
+    Nuvvu developer kada...
+    naa heart lo permanent ga
+    place create chesesav! 😂💻
+
+    <br><br>
+
+    No bugs, no errors,
+    only unlimited love! ❤️
+
+    <br><br>
+
+    Happy Birthday, Bava! 😘
+
+  </div>
+
+  <div class="heart">💗💗💗</div>
+
+  <p>
+    Always yours, with lots of love! ❤️
+  </p>
+
+  <button onclick="goToBirthday()">
+    FINAL BIRTHDAY SURPRISE 🎉
+  </button>
+
+  <div class="small">
+    Made with endless love ❤️
+  </div>
+
+</section>
+
 </div>
+
+
+<script>
+
+function nextPage(number) {
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.getElementById("page" + number)
+    .classList.add("active");
+
+  window.scrollTo(0,0);
+
+  if(number === 2 || number === 3) {
+    hearts();
+  }
+}
+
+function hearts() {
+
+  const symbols = ["❤️","💕","💗","✨","💖"];
+
+  for(let i=0; i<15; i++) {
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating";
+
+    heart.textContent =
+      symbols[Math.floor(Math.random()*symbols.length)];
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.fontSize = "22px";
+
+    heart.style.animationDuration =
+      (3 + Math.random()*3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(),6000);
+  }
+}
+
+function goToBirthday() {
+
+  window.location.href =
+  "https://sruthipalli.github.io/bava-birthday/";
+}
+
+</script>
 
 </body>
 </html>
