@@ -3,79 +3,241 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Bava ❤️</title>
-<link rel="stylesheet" href="style.css">
+<title>Aditya's Birthday Surprise ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ min-height:100vh;
+ background:radial-gradient(circle at center,#51233d,#100817 75%);
+ color:white;
+ font-family:Georgia,serif;
+ text-align:center;
+ overflow-x:hidden;
+}
+.page{
+ min-height:100vh;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ padding:25px 18px;
+}
+h1{color:#ffdb91;font-size:30px}
+p{color:#f4d9e7;line-height:1.7}
+.small{letter-spacing:3px;font-size:12px;color:#e8bb78}
+.stage{
+ width:240px;height:210px;
+ position:relative;
+ margin:40px auto 25px;
+ perspective:800px;
+}
+.box-base{
+ position:absolute;
+ width:190px;height:125px;
+ left:25px;bottom:0;
+ background:linear-gradient(90deg,#8e142e,#e3425b,#8e142e);
+ border-radius:5px 5px 12px 12px;
+ box-shadow:0 18px 35px #0009;
+}
+.box-base:before{
+ content:"";
+ position:absolute;left:76px;
+ width:38px;height:100%;
+ background:linear-gradient(90deg,#e4ac4c,#ffe19a,#bc7928);
+}
+.box-base:after{
+ content:"";
+ position:absolute;left:65px;top:35px;
+ width:60px;height:25px;
+ border:7px solid #f4ca70;
+ border-radius:50%;
+ transform:rotate(-15deg);
+}
+.box-lid{
+ position:absolute;
+ width:210px;height:40px;
+ left:15px;bottom:118px;
+ background:linear-gradient(90deg,#a51e39,#f35b6e,#a51e39);
+ border-radius:7px;
+ z-index:3;
+ transform-origin:left bottom;
+ transition:transform 1.3s ease;
+ box-shadow:0 5px 12px #0007;
+}
+.box-lid:before{
+ content:"";
+ position:absolute;left:85px;
+ width:40px;height:100%;
+ background:linear-gradient(90deg,#d59b3d,#ffe5a2,#bd802d);
+}
+.box-lid:after{
+ content:"🎀";
+ position:absolute;
+ left:83px;top:-36px;
+ font-size:38px;
+}
+.stage.open .box-lid{
+ transform:translate(-15px,-90px) rotate(-35deg);
+}
+.glow{
+ position:absolute;
+ width:160px;height:150px;
+ left:40px;bottom:80px;
+ background:#ffd36b;
+ filter:blur(45px);
+ opacity:0;
+ transition:opacity 1s;
+}
+.stage.open .glow{opacity:.85}
+.card{
+ max-width:450px;width:100%;
+ background:#ffffff0d;
+ border:1px solid #c99a6a;
+ border-radius:22px;
+ padding:25px;
+ box-shadow:0 0 30px #c58a5930;
+}
+button{
+ border:0;border-radius:30px;
+ padding:14px 27px;
+ margin-top:20px;
+ background:linear-gradient(135deg,#ffe09a,#bd7d2d);
+ color:#281321;
+ font-size:15px;font-weight:bold;
+ cursor:pointer;
+}
+.hidden{display:none!important}
+.terminal{
+ background:#050d0a;
+ border:1px solid #39d78c;
+ color:#64ffad;
+ padding:20px;
+ border-radius:12px;
+ font:14px/2 monospace;
+ text-align:left;
+ width:100%;
+}
+.letter{
+ font-size:18px;
+ line-height:2;
+ color:#ffe3d1;
+}
+#confetti{
+ position:fixed;inset:0;
+ pointer-events:none;z-index:10;
+}
+</style>
 </head>
 
 <body>
+<canvas id="confetti"></canvas>
 
-<div class="container">
+<section class="page" id="one">
+ <div class="small">A SPECIAL GIFT FOR YOU</div>
+ <h1>Hey Aditya ❤️</h1>
+ <p>Someone has prepared a little surprise for you...</p>
 
-  <div class="terminal">
-    <p>> Initializing Birthday Surprise...</p>
-    <p>> Loading Love.exe ❤️</p>
-    <p>> Access Granted: BAVA</p>
+ <div class="stage" id="gift">
+  <div class="glow"></div>
+  <div class="box-base"></div>
+  <div class="box-lid"></div>
+ </div>
+
+ <p>✨ Your surprise is waiting ✨</p>
+ <button onclick="openGift()">OPEN YOUR GIFT 🎁</button>
+</section>
+
+<section class="page hidden" id="two">
+ <div class="card">
+  <div style="font-size:75px">✨🎁✨</div>
+  <h1>Surprise Aditya!</h1>
+  <p>Your gift box has opened... but there is one more secret waiting for you.</p>
+  <button onclick="showPage('three')">UNLOCK SECRET 🔐</button>
+ </div>
+</section>
+
+<section class="page hidden" id="three">
+ <div class="terminal">
+  > Initializing birthday.exe...<br>
+  > Searching for special person...<br>
+  > Person found: ADITYA<br>
+  > Happiness: INFINITE ❤️<br>
+  > Love detected: 100%<br>
+  > Secret successfully unlocked!
+ </div>
+ <button onclick="showPage('four')">READ YOUR MESSAGE ❤️</button>
+</section>
+
+<section class="page hidden" id="four">
+ <div class="card">
+  <div style="font-size:65px">💌</div>
+  <h1>Happy Birthday Aditya!</h1>
+  <div class="letter">
+   To my favourite person ❤️<br><br>
+   You make ordinary moments special.
+   I wish you endless happiness,
+   success and beautiful memories.<br><br>
+   May all your dreams come true.
+   Keep smiling and keep shining.<br><br>
+   You are truly special to me.<br><br>
+   With lots of love ❤️
   </div>
+  <h2 style="color:#ffcf82">Forever Yours! ♥</h2>
+  <button onclick="celebrate()">CELEBRATE 🎉</button>
+ </div>
+</section>
 
-  <div class="heart">❤️</div>
+<script>
+function showPage(id){
+ document.querySelectorAll('.page').forEach(p=>
+ p.classList.add('hidden'));
+ document.getElementById(id).classList.remove('hidden');
+ window.scrollTo(0,0);
+}
 
-  <h1>Happy Birthday Bava!</h1>
+function openGift(){
+ const gift=document.getElementById('gift');
+ gift.classList.add('open');
 
-  <p class="subtitle">
-    A special surprise has been created just for you.
-  </p>
+ setTimeout(()=>{
+  showPage('two');
+  celebrate();
+ },1600);
+}
 
-  <button onclick="startSurprise()">
-    OPEN YOUR SURPRISE 💌
-  </button>
+function celebrate(){
+ const canvas=document.getElementById('confetti');
+ const ctx=canvas.getContext('2d');
+ canvas.width=innerWidth;
+ canvas.height=innerHeight;
 
-  <div id="surprise">
-
-    <h2>🎂 Happy Birthday My Bava 🎂</h2>
-
-    <div class="photo">
-      <!-- Add your photo URL here -->
-      <img src="https://placehold.co/400x300/ffe4ef/d63384?text=Our+Beautiful+Memory"
-           alt="Our memory">
-    </div>
-
-    <div class="letter">
-
-      <h2>Dear Bava ❤️</h2>
-
-      Happy Birthday to my favourite person!
-
-      You are my happiness, my smile and one of
-      the most special people in my life.
-
-      I wish you unlimited happiness, success,
-      good health and beautiful memories.
-
-      May all your dreams come true.
-
-      Keep smiling and keep shining.
-
-      I am lucky to have you in my life.
-
-      <h2>LOVE YOU FOREVER ❤️</h2>
-
-      <p class="signature">
-        With lots of love,<br>
-        Your favourite person 💗
-      </p>
-
-    </div>
-
-    <button onclick="finalSurprise()">
-      ONE LAST SECRET ❤️
-    </button>
-
-    <h2 id="finalMessage"></h2>
-
-  </div>
-
-</div>
-
-<script src="script.js"></script>
+ let pieces=[];
+ for(let i=0;i<150;i++){
+  pieces.push({
+   x:Math.random()*canvas.width,
+   y:-Math.random()*canvas.height,
+   speed:2+Math.random()*5,
+   size:3+Math.random()*7,
+   color:['#ffd166','#ff6b91','#ffffff','#c77dff'][i%4]
+  });
+ }
+ let frame=0;
+ function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  pieces.forEach(p=>{
+   ctx.fillStyle=p.color;
+   ctx.fillRect(p.x,p.y,p.size,p.size);
+   p.y+=p.speed;
+   p.x+=Math.sin(p.y/30);
+  });
+  frame++;
+  if(frame<130)requestAnimationFrame(draw);
+  else ctx.clearRect(0,0,canvas.width,canvas.height);
+ }
+ draw();
+}
+</script>
 </body>
 </html>
